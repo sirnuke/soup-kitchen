@@ -3,10 +3,5 @@
 --
 -- See LICENSE for licensing information
 
-require 'utilities/30logglobal'
-
-require 'utilities/core'
-
-function love.load()
-end
+Core = class()
 
