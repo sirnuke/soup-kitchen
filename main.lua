@@ -6,8 +6,9 @@
 C = require 'constants/constants'
 Class = require 'utilities/30log'
 
+require 'core'
+
 require 'utilities/configuration'
-require 'utilities/core'
 require 'utilities/logging'
 
 local tag = 'Main', core
