@@ -26,6 +26,8 @@ local constants = {
       height = 0,
     },
   },
+
+  map = require 'constants/map',
 }
 local debug = constants.debug
 if debug then
