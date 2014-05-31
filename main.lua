@@ -28,3 +28,23 @@ function love.load()
   core = Core(false)
 end
 
+function love.draw()
+  core:draw()
+end
+
+function love.update(dt)
+  core:update(dt)
+end
+
+function love.keypressed(key)
+  if key == "q" then
+    love.event.quit()
+  else
+    core:keypressed(key)
+  end
+end
+
+function love.keyreleased(key)
+  core:keyreleased(key)
+end
+
