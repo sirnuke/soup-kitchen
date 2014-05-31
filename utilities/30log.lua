@@ -1,5 +1,5 @@
 local assert, pairs, type, tostring, setmetatable = assert, pairs, type, tostring, setmetatable
-local baseMt, _instances, _classes = {}, setmetatable({},{__mode='k'}), setmetatable({},{__mode='k'})
+local baseMt, _instances, _classes, class = {}, setmetatable({},{__mode='k'}), setmetatable({},{__mode='k'})
 local function deep_copy(t, dest, aType)
   local t, r = t or {}, dest or {}
   for k,v in pairs(t) do
