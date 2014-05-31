@@ -11,6 +11,15 @@ local constants = {
     work = 75,
     clock = 1.25,
   },
+
+  screen = {
+    width = 1280,
+    height = 720,
+    fullscreen = false,
+    fullscreenType = 'desktop',
+    letterBoxWidth = 0,
+    letterBoxHeight = 0,
+  },
 }
 local debug = constants.debug
 if debug then
