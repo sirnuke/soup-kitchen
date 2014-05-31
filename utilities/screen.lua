@@ -11,10 +11,12 @@ Screen = Class {
 Screen.__name = 'Screen'
 function Screen:__init(config)
   assert(config)
+
   self.size.width = config.screen.size.width
   self.size.height = config.screen.size.height
   self.letterbox.width = config.screen.letterbox.width
   self.letterbox.height = config.screen.letterbox.height
+
   self.scale.width = C.screen.size.width / (self.size.width - self.letterbox.width)
   self.scale.height = C.screen.size.height / (self.size.height - self.letterbox.height)
 
