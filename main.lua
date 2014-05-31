@@ -3,7 +3,8 @@
 --
 -- See LICENSE for licensing information
 
-require 'utilities/30logglobal'
+C = require 'constants/constants'
+Class = require 'utilities/30log'
 
 require 'utilities/core'
 require 'utilities/logging'
@@ -19,8 +20,10 @@ local function version_check()
   end
 end
 
-
 function love.load()
+  if C.debug then
+    Log(tag, 'debug mode is enabled')
+  end
   version_check()
 end
 

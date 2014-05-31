@@ -3,6 +3,6 @@
 --
 -- See LICENSE for licensing information
 
-Core = class()
+Core = Class()
 Core.__name = "Core"
 
