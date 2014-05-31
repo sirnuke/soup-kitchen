@@ -7,7 +7,7 @@ Point = Class()
 Point.__name = 'Point'
 
 function Point:__init(x, y)
-  assert(x != nil and y != nil)
+  assert(x ~= nil and y ~= nil)
   self.x = x
   self.y = y
 end

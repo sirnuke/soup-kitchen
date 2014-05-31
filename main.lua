@@ -9,7 +9,10 @@ Class = require 'utilities/30log'
 require 'core'
 
 require 'utilities/configuration'
+require 'utilities/coordinate'
 require 'utilities/logging'
+require 'utilities/point'
+require 'utilities/quadrant'
 require 'utilities/screen'
 
 local tag = 'Main', core
