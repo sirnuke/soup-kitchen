@@ -3,6 +3,9 @@
 --
 -- See LICENSE for licensing information
 
+require 'scenes/scene'
+require 'scenes/mainmenu'
+
 Core = Class {
   scenes = {}
 }
