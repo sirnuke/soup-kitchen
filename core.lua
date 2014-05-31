@@ -5,6 +5,8 @@
 
 require 'scenes/scene'
 require 'scenes/mainmenu'
+require 'scenes/mapview'
+require 'scenes/planning'
 
 Core = Class {
   scenes = { next = nil },
@@ -17,6 +19,8 @@ function Core:__init(ignoreUserSettings)
   self.screen = Screen:new(self.config)
 
   self.scenes.mainmenu = MainMenu:new(self)
+  self.scenes.mapview = MapView:new(self)
+  self.scenes.planning = MapView:new(self)
 
   self.scene = self.scenes.mainmenu
   self.scene:enter()
