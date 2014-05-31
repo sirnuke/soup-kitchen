@@ -3,3 +3,5 @@
 --
 -- See LICENSE for licensing information
 
+require 'utilities/30logglobal'
+
