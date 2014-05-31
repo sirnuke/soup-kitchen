@@ -4,4 +4,5 @@
 -- See LICENSE for licensing information
 
 Core = class()
+Core.__name = "Core"
 
