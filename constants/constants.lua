@@ -13,12 +13,18 @@ local constants = {
   },
 
   screen = {
-    width = 1280,
-    height = 720,
-    fullscreen = false,
-    fullscreenType = 'desktop',
-    letterBoxWidth = 0,
-    letterBoxHeight = 0,
+    size = {
+      width = 1280,
+      height = 720,
+    },
+    fullscreen = {
+      enabled = false,
+      type = 'desktop',
+    },
+    letterbox = {
+      width = 0,
+      height = 0,
+    },
   },
 }
 local debug = constants.debug
