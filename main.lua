@@ -10,6 +10,7 @@ require 'core'
 
 require 'utilities/configuration'
 require 'utilities/logging'
+require 'utilities/screen'
 
 local tag = 'Main', core
 

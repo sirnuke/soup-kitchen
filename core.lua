@@ -14,6 +14,8 @@ Core.__name = "Core"
 
 function Core:__init(ignoreUserSettings)
   self.config = Configuration:new(ignoreUserSettings)
+  self.screen = Screen:new(self.config)
+
   self.scenes.mainmenu = MainMenu:new(self)
 
   self.scene = self.scenes.mainmenu
