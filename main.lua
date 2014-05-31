@@ -21,9 +21,7 @@ local function version_check()
 end
 
 function love.load()
-  if C.debug then
-    Log(tag, 'debug mode is enabled')
-  end
+  if C.debug then Log(tag, 'debug mode is enabled') end
   version_check()
 end
 
