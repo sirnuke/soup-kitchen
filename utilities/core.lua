@@ -6,3 +6,7 @@
 Core = Class()
 Core.__name = "Core"
 
+function Core:__init(ignoreUserSettings)
+  self.config = Configuration:new(ignoreUserSettings)
+end
+

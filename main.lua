@@ -6,10 +6,11 @@
 C = require 'constants/constants'
 Class = require 'utilities/30log'
 
+require 'utilities/configuration'
 require 'utilities/core'
 require 'utilities/logging'
 
-local tag = 'Main'
+local tag = 'Main', core
 
 local function version_check()
   if not love.getVersion then
@@ -23,5 +24,6 @@ end
 function love.load()
   if C.debug then Log(tag, 'debug mode is enabled') end
   version_check()
+  core = Core(false)
 end
 
