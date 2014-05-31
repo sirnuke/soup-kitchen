@@ -50,3 +50,11 @@ function Core:keyreleased(key)
   self.scene:keyreleased(key)
 end
 
+function Core:mousepressed(x, y, button)
+  self.scene:mousepressed(self.screen:translate(x, y), button)
+end
+
+function Core:mousereleased(x, y, button)
+  self.scene:mousepressed(self.screen:translate(x, y), button)
+end
+

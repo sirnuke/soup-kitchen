@@ -52,3 +52,11 @@ function love.keyreleased(key)
   core:keyreleased(key)
 end
 
+function love.mousepressed(x, y, button)
+  core:mousepressed(x, y, button)
+end
+
+function love.mousereleased(x, y, button)
+  core:mousereleased(x, y, button)
+end
+
