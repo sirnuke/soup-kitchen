@@ -6,7 +6,7 @@
 Interactable = Class()
 Interactable.__name = "Interactable"
 
-function Interactable:new(point, width, height)
+function Interactable:__init(point, width, height)
   assert(width and height)
   self.point = point:duplicate()
   self.width = width
