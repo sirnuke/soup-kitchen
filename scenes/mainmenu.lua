@@ -7,15 +7,16 @@ MainMenu = Scene:extends()
 MainMenu.__name = "MainMenu"
 
 function MainMenu:enter()
-  self.background = "placeholder"
+  self.background = Image:new('mainmenu/background.png')
 end
 
 function MainMenu:exit()
+  self.background:dereference()
   self.background = nil
 end
 
 function MainMenu:draw()
-  -- TODO: Draw background
+  self.core.screen:draw(self.background.image)
 end
 
 function MainMenu:update(dt) end
