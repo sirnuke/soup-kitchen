@@ -14,7 +14,7 @@ function Square:__init(type, x, y)
   elseif type == ' ' then
     self.type = 'empty'
   else
-    assert(false, string.format('Unknown map square type of \'%s\' at (%i,%i)', type, x, y))
+    assert(false, string.format("Unknown map square type of '%s' at (%i,%i)", type, x, y))
   end
 end
 
