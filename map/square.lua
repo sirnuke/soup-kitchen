@@ -20,6 +20,11 @@ function Square:__init(core, type, x, y)
   self.tile = Drawable:new(core, string.format("map/%s.png", self.type), self.quadrant:screen())
 end
 
+function Square:free()
+  self.tile:free()
+  self.tile = nil
+end
+
 function Square:draw()
   self.tile:draw()
 end
