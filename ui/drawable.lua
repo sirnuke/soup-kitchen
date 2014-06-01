@@ -6,11 +6,13 @@
 Drawable = Class()
 Drawable.__name = "Drawable"
 
+-- Note that point is not duplicated.  The idea that the caller has setup
+-- a dedicated point already when creating the Drawable.
 function Drawable:__init(core, filename, point)
   assert(type(filename) == 'string' and point)
   self.image = Image:new(filename)
   self.core = core
-  self.point = point:duplicate() 
+  self.point = point
 end
 
 function Drawable:free()
