@@ -12,6 +12,10 @@ function Point:__init(x, y)
   self.y = y
 end
 
+function Point:duplicate()
+  return Point:new(self.x, self.y)
+end
+
 function Point.__eq(a, b)
   if a.x == b.x and a.y == b.y then
     return true
