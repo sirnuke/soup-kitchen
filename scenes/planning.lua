@@ -7,7 +7,7 @@ Planning = Scene:extends()
 Planning.__name = 'Planning'
 
 function Planning:enter()
-  self.background = Image:new('planning/background.png')
+  self.background = Drawable:new(self.core, 'planning/background.png', Point:new(0, 0))
 end
 
 function Planning:exit()
@@ -16,7 +16,7 @@ function Planning:exit()
 end
 
 function Planning:draw()
-  self.core.screen:draw(self.background.image)
+  self.background:draw()
 end
 
 function Planning:update(dt)

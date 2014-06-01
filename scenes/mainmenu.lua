@@ -7,7 +7,7 @@ MainMenu = Scene:extends()
 MainMenu.__name = 'MainMenu'
 
 function MainMenu:enter()
-  self.background = Image:new('mainmenu/background.png')
+  self.background = Drawable:new(self.core, 'mainmenu/background.png', Point:new(0, 0))
 end
 
 function MainMenu:exit()
@@ -16,7 +16,7 @@ function MainMenu:exit()
 end
 
 function MainMenu:draw()
-  self.core.screen:draw(self.background.image)
+  self.background:draw()
 end
 
 function MainMenu:update(dt) end
