@@ -24,6 +24,8 @@ function Core:__init(ignoreUserSettings)
 
   self.scene = self.scenes.mainmenu
   self.scene:enter()
+
+  self.map = Map:new(self)
 end
 
 function Core:draw()
