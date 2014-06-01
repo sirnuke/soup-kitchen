@@ -7,7 +7,7 @@ Interactable = Class()
 Interactable.__name = "Interactable"
 
 function Interactable:new(point, width, height)
-  assert(point and width and height)
+  assert(width and height)
   self.point = point:duplicate()
   self.width = width
   self.height = height
@@ -16,8 +16,7 @@ function Interactable:new(point, width, height)
 end
 
 function Interactable:update()
-  local x, y = love.mouse.getPosition()
-  self.hover = self:compare_mouse(x, y)
+  self.hover = self:compare_mouse(love.mouse.getPosition())
 end
 
 function Interactable:setPoint(point)
@@ -39,6 +38,10 @@ end
 
 function Interactable:mousepressed()
   self.pressed = self.hover
+end
+
+function Interactable:mousereleased()
+  self.pressed = false
 end
 
 function Interactable:triggered()
