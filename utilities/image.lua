@@ -10,6 +10,7 @@ Image.__name = 'Image'
 
 function Image:__init(filename)
   assert(type(filename) == 'string')
+  filename = 'images/' .. filename
   if not cache[filename] then
     local image = love.graphics.newImage(filename)
     cache[filename] = ReferenceCounting:new(image)
