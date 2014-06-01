@@ -37,6 +37,7 @@ local constants = {
   layout = require 'constants/layout',
   map = require 'constants/map',
 }
+
 local debug = constants.debug
 if debug then
   if debug.scale then
