@@ -18,6 +18,8 @@ require 'utilities/quadrant'
 require 'utilities/referencecounting'
 require 'utilities/screen'
 
+require 'ui/interactable'
+
 local tag = 'Main', core
 
 local function version_check()
