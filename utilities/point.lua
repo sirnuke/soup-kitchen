@@ -7,9 +7,15 @@ Point = Class()
 Point.__name = 'Point'
 
 function Point:__init(x, y)
-  assert(x ~= nil and y ~= nil)
-  self.x = x
-  self.y = y
+  if type(x) == 'table' and type(y) == 'nil' then
+    self.x = x.x
+    self.y = x.y
+  elseif type(x) == 'number' and type(y) == 'number' then
+    self.x = x
+    self.y = y
+  else
+    assert(false, string.format("Invalid arguments x:'%s', y:'%s'", x, y))
+  end
 end
 
 function Point:duplicate()
