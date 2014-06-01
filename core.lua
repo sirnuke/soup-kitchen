@@ -4,6 +4,7 @@
 -- See LICENSE for licensing information
 
 require 'scenes/scene'
+require 'scenes/instructions'
 require 'scenes/mainmenu'
 require 'scenes/mapview'
 require 'scenes/planning'
@@ -19,6 +20,7 @@ function Core:__init(ignoreUserSettings)
   self.screen = Screen:new(self.config)
 
   self.scenes.mainmenu = MainMenu:new(self)
+  self.scenes.instructions = Instructions:new(self)
   self.scenes.mapview = MapView:new(self)
   self.scenes.planning = Planning:new(self)
 

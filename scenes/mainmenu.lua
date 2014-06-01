@@ -22,8 +22,6 @@ end
 function MainMenu:update(dt) end
 
 function MainMenu:mousepressed(point, button)
-  if button == 'l' then
-    self.core:switch('planning')
-  end
+  if button == 'l' then self.core:switch('instructions') end
 end
 
