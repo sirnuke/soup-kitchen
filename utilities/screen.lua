@@ -42,17 +42,17 @@ function Screen:translate(x, y)
                    y / self.scale.height - self.letterbox.height)
 end
 
--- rotation defaults to 0 if not set
+-- location defaults to (0,0), and rotation defaults to 0
 function Screen:draw(drawable, location, rotation)
-  local rot = rotation or 0
-  love.graphics.draw(drawable, location.x, location.y, rot, self.scale.width, self.scale.height,
+  local loc, rot = location or Point:new(0, 0), rotation or 0
+  love.graphics.draw(drawable, loc.x, loc.y, rot, self.scale.width, self.scale.height,
     self.letterbox.width, self.letterbox.height)
 end
 
--- rotation defaults to 0 if not set
+-- location defaults to (0,0), and rotation defaults to 0
 function Screen:print(text, location, rotation)
-  local rot = rotation or 0
-  love.graphics.print(text, location.x, location.y, rot, self.scale.width, self.scale.height,
+  local loc, rot = location or Point:new(0, 0), rotation or 0
+  love.graphics.print(text, loc.x, loc.y, rot, self.scale.width, self.scale.height,
     self.letterbox.width, self.letterbox.height)
 end
 
