@@ -9,6 +9,13 @@ require 'scenes/mainmenu'
 require 'scenes/mapview'
 require 'scenes/planning'
 
+require 'map/map'
+require 'map/square'
+
+require 'pawns/pawn'
+require 'pawns/aicontrolled'
+require 'pawns/player'
+
 Core = Class {
   scenes = { next = nil },
   scene = nil,

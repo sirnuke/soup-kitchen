@@ -21,9 +21,6 @@ require 'utilities/screen'
 require 'ui/drawable'
 require 'ui/interactable'
 
-require 'map/map'
-require 'map/square'
-
 local tag = 'Main', core
 
 local function version_check()
