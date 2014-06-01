@@ -4,14 +4,14 @@
 -- See LICENSE for licensing information
 
 MainMenu = Scene:extends()
-MainMenu.__name = "MainMenu"
+MainMenu.__name = 'MainMenu'
 
 function MainMenu:enter()
   self.background = Image:new('mainmenu/background.png')
 end
 
 function MainMenu:exit()
-  self.background:dereference()
+  self.background:free()
   self.background = nil
 end
 
@@ -23,7 +23,7 @@ function MainMenu:update(dt) end
 
 function MainMenu:mousepressed(point, button)
   if button == 'l' then
-    -- TODO: Switch to next scene
+    self.core:switch('planning')
   end
 end
 
