@@ -20,7 +20,7 @@ function Core:__init(ignoreUserSettings)
 
   self.scenes.mainmenu = MainMenu:new(self)
   self.scenes.mapview = MapView:new(self)
-  self.scenes.planning = MapView:new(self)
+  self.scenes.planning = Planning:new(self)
 
   self.scene = self.scenes.mainmenu
   self.scene:enter()
@@ -35,15 +35,16 @@ function Core:update(dt)
   self.scene:update(dt)
   if self.scenes.next then
     self.scene:exit()
-    self.scene = self.scenes[self.scenes.next]
+    self.scene = self.scenes.next
     self.scene:enter()
     self.scenes.next = nil
   end
 end
 
 function Core:switch(scene)
-  assert(self.scenes[self.scenes.next])
-  self.scenes.next = scene
+  Log(self, 'switching to %s!', scene)
+  assert(self.scenes[scene])
+  self.scenes.next = self.scenes[scene]
 end
 
 function Core:keypressed(key)
@@ -59,6 +60,6 @@ function Core:mousepressed(x, y, button)
 end
 
 function Core:mousereleased(x, y, button)
-  self.scene:mousepressed(self.screen:translate(x, y), button)
+  self.scene:mousereleased(self.screen:translate(x, y), button)
 end
 
