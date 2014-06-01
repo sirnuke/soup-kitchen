@@ -27,6 +27,13 @@ local constants = {
     },
   },
 
+  fonts = {
+    files = {
+      normal = 'fonts/Inconsolata-Regular.ttf',
+      bold = 'fonts/Inconsolata-Bold.ttf',
+    },
+  },
+
   map = require 'constants/map',
 }
 local debug = constants.debug
