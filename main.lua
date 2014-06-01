@@ -18,6 +18,7 @@ require 'utilities/quadrant'
 require 'utilities/referencecounting'
 require 'utilities/screen'
 
+require 'ui/drawable'
 require 'ui/interactable'
 
 require 'map/map'
