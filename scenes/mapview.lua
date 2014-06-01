@@ -25,6 +25,7 @@ function MapView:draw()
   self.core.screen:draw(self.map_background.image, C.layout.mapview.map)
   self.core.screen:draw(self.player_sidebar.image, C.layout.mapview.player_sidebar)
   self.core.screen:draw(self.game_sidebar.image, C.layout.mapview.game_sidebar)
+  self.core.map:draw()
 end
 
 function MapView:update(dt)
