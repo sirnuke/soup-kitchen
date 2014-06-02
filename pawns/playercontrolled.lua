@@ -3,10 +3,10 @@
 --
 -- See LICENSE for licensing information
 
-Player = Pawn:extends()
-Player.__name = 'Player'
+PlayerControlled = Pawn:extends()
+PlayerControlled.__name = 'PlayerControlled'
 
-function Player:__init()
-  Player.super.__init(self)
+function PlayerControlled:__init()
+  PlayerControlled.super.__init(self)
 end
 

@@ -14,7 +14,7 @@ require 'map/square'
 
 require 'pawns/pawn'
 require 'pawns/aicontrolled'
-require 'pawns/player'
+require 'pawns/playercontrolled'
 
 Core = Class {
   scenes = { next = nil },
