@@ -9,3 +9,12 @@ Pawn.__name = 'Pawn'
 function Pawn:__init()
 end
 
+function Pawn:jump(coordinate)
+end
+
+function Pawn:move(coordinate)
+end
+
+function Pawn:spawned()
+end
+
