@@ -16,6 +16,7 @@ function Map:__init(core)
     end
     table.insert(self.data, row)
   end
+  self.pawns = {}
 end
 
 function Map:draw()
@@ -24,5 +25,9 @@ function Map:draw()
       self.data[y][x]:draw()
     end
   end
+end
+
+function Map:occupied(quadrant)
+  return self.data[quadrant.y][quadrant.x].pawn == nil
 end
 

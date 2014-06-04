@@ -18,6 +18,7 @@ function Square:__init(core, type, x, y)
     assert(false, string.format("Unknown map square type of '%s' at (%i,%i)", type, x, y))
   end
   self.tile = Drawable:new(core, string.format("map/%s.png", self.type), self.quadrant:screen())
+  self.pawn = nil
 end
 
 function Square:free()
