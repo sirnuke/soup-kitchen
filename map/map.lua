@@ -28,6 +28,6 @@ function Map:draw()
 end
 
 function Map:occupied(quadrant)
-  return self.data[quadrant.y][quadrant.x].pawn == nil
+  return self.data[quadrant.y][quadrant.x].pawn ~= nil
 end
 
