@@ -17,6 +17,8 @@ require 'pawns/aicontrolled'
 require 'pawns/playercontrolled'
 require 'pawns/coordinator'
 
+require 'state/state'
+
 Core = Class {
   scenes = { next = nil },
   scene = nil,
@@ -36,6 +38,7 @@ function Core:__init(ignoreUserSettings)
   self.scene:enter()
 
   self.map = Map:new(self)
+  self.state = State:new(self)
 end
 
 function Core:draw()
