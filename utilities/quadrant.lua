@@ -41,3 +41,7 @@ function Quadrant.__eq(a, b)
   end
 end
 
+function Quadrant.__tostring(quadrant)
+  return string.format("(%i,%i)", quadrant.x, quadrant.y)
+end
+
