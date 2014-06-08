@@ -20,8 +20,8 @@ function Quadrant:coordinate(offsetx, offsety)
   if offx ~= 0 and offy ~= 0 then
     Log(self, 'offset is (%d,%d)', offx, offy)
   end
-  return Coordinate:new((self.x - 1 - offx) * C.map.square.width,
-    (self.y - 1 - offy) * C.map.square.height)
+  return Coordinate:new((self.x - 1) * C.map.square.width + offx,
+    (self.y - 1) * C.map.square.height + offy)
 end
 
 function Quadrant:screen()
