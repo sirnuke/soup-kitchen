@@ -40,3 +40,7 @@ function Coordinate.__add(a, b)
   return Coordinate:new(a.x + b.x, a.y + b.y)
 end
 
+function Coordinate.__tostring(coordinate)
+  return string.format('(C:%d,%d)', coordinate.x, coordinate.y)
+end
+
