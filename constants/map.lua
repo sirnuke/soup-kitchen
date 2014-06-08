@@ -8,6 +8,10 @@ local map =  {
     width = 12,
     height = 12,
   },
+  pawn = {
+    width = 32,
+    height = 32,
+  },
   square = {
     width = 64,
     height = 64,
