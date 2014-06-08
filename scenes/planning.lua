@@ -8,6 +8,7 @@ Planning.__name = 'Planning'
 
 function Planning:enter()
   self.background = Drawable:new(self.core, 'planning/background.png', Point:new(0, 0))
+  self.core.state:begin()
 end
 
 function Planning:exit()
