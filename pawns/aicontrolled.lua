@@ -6,7 +6,7 @@
 AIControlled = Pawn:extends()
 AIControlled.__name = 'AI-Controlled'
 
-function AIControlled:__init()
-  AIControlled.super.__init(self)
+function AIControlled:__init(map)
+  AIControlled.super.__init(self, map)
 end
 
