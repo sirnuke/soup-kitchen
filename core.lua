@@ -18,6 +18,7 @@ require 'pawns/playercontrolled'
 require 'pawns/coordinator'
 
 require 'state/state'
+require 'state/time'
 
 Core = Class {
   scenes = { next = nil },
