@@ -15,8 +15,13 @@ function Quadrant:duplicate()
   return Quadrant:new(self.x, self.y)
 end
 
-function Quadrant:coordinate()
-  return Coordinate:new((self.x - 1) * C.map.square.width, (self.y - 1) * C.map.square.height)
+function Quadrant:coordinate(offsetx, offsety)
+  local offx, offy = offsetx or 0, offsety or 0
+  if offx ~= 0 and offy ~= 0 then
+    Log(self, 'offset is (%d,%d)', offx, offy)
+  end
+  return Coordinate:new((self.x - 1 - offx) * C.map.square.width,
+    (self.y - 1 - offy) * C.map.square.height)
 end
 
 function Quadrant:screen()
@@ -42,6 +47,6 @@ function Quadrant.__eq(a, b)
 end
 
 function Quadrant.__tostring(quadrant)
-  return string.format("(%i,%i)", quadrant.x, quadrant.y)
+  return string.format('(Q:%i,%i)', quadrant.x, quadrant.y)
 end
 
