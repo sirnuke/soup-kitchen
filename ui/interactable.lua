@@ -8,7 +8,7 @@ Interactable.__name = "Interactable"
 
 function Interactable:__init(point, width, height)
   assert(width and height)
-  self.point = point:duplicate()
+  if point then self.point = point:duplicate() end
   self.width = width
   self.height = height
   self.pressed = false
