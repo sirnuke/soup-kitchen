@@ -25,9 +25,21 @@ function Map:draw()
       self.data[y][x]:draw()
     end
   end
+  for k,pawn in pairs(self.pawns) do
+    pawn:draw()
+  end
 end
 
 function Map:occupied(quadrant)
   return self.data[quadrant.y][quadrant.x].pawn ~= nil
+end
+
+function Map:jump(pawn, quadrant)
+  Log(self, 'Jumping %s to %s', pawn, quadrant)
+  assert(pawn and quadrant)
+  assert(not self:occupied(quadrant),
+    string.format("Cannot jump to %s: it's occupied!", quadrant))
+  self.pawns[pawn] = pawn
+  self.data[quadrant.y][quadrant.x].pawn = pawn
 end
 
