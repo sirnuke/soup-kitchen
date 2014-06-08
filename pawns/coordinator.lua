@@ -6,3 +6,7 @@
 Coordinator = PlayerControlled:extends()
 Coordinator.__name = 'Coordinator'
 
+function Coordinator:__init(core)
+  Coordinator.super.__init(self, core, 'pawns/coordinator.png')
+end
+
