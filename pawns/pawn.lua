@@ -18,10 +18,13 @@ end
 function Pawn:jump(quadrant)
   assert(quadrant)
   self.quadrant = quadrant
-  self.coordinate = quadrant:coordinate()
+  self.coordinate = quadrant:coordinate(C.map.pawn.width / 2, C.map.pawn.height / 2)
+  Log(self, 'pawn coordinate is %s, compare to %s', self.coordinate, quadrant:coordinate())
   if not self.spawned then
     self.spawned = true
-    self.drawable = Drawable:new(self.core, self.filename, self.coordinate:screen())
+    self.interactable = Interactable:new(self.coordinate:screen(), C.map.pawn.width,
+      C.map.pawn.height)
+    self.drawable = Drawable:new(self.core, self.filename, self.interactable.point)
   end
   self.core.map:jump(self, quadrant)
 end
