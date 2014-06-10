@@ -30,18 +30,8 @@ local function version_check()
     local major, minor, revision = love.getVersion()
     Log(tag, 'love runtime is (%i.%i.%i)', major, minor, revision)
   end
-  local lua = {}
-  for match in string.gmatch(_VERSION, '%d') do
-    table.insert(lua, tonumber(match))
-  end
-  if #lua ~= 2 then
-    Error(tag, 'unable to parse Lua version %q, expect "Lua 5.2"', _VERSION)
-  else
-    if lua[1] < 5 or lua[2] < 2 then
-      Error(tag, 'builtin Lua out of date: %q, expect "Lua 5.2"', _VERSION)
-    elseif lua[1] > 5 or lua[2] > 2 then
-      Error(tag, 'builtin Lua may be too new: %q, expect "Lua 5.2"', _VERSION)
-    end
+  if _VERSION ~= 'Lua 5.1' then
+    Warn(tag, 'unexpected builtin Lua version: %q, expected "Lua 5.1"', _VERSION_)
   end
 end
 
