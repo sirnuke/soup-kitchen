@@ -6,13 +6,14 @@
 Pawn = Class()
 Pawn.__name = 'Pawn'
 
-function Pawn:__init(core, filename)
+function Pawn:__init(core, filename, controllable)
   assert(core and type(filename) == 'string')
   self.filename = filename
   self.core = core
   self.quadrant = nil
   self.coordinate = nil
   self.spawned = false
+  self.controllable = controllable
 end
 
 function Pawn:jump(quadrant)
@@ -22,8 +23,10 @@ function Pawn:jump(quadrant)
   Log(self, 'pawn coordinate is %s, compare to %s', self.coordinate, quadrant:coordinate())
   if not self.spawned then
     self.spawned = true
-    self.interactable = Interactable:new(self.coordinate:screen(), C.map.pawn.width,
-      C.map.pawn.height)
+    if self.controllable then
+      self.interactable = Interactable:new(self.coordinate:screen(), C.map.pawn.width,
+        C.map.pawn.height)
+    end
     self.drawable = Drawable:new(self.core, self.filename, self.interactable.point)
   end
   self.core.map:jump(self, quadrant)

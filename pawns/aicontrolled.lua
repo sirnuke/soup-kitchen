@@ -7,6 +7,6 @@ AIControlled = Pawn:extends()
 AIControlled.__name = 'AI-Controlled'
 
 function AIControlled:__init(core, filename)
-  AIControlled.super.__init(self, core, filename)
+  AIControlled.super.__init(self, core, filename, false)
 end
 
