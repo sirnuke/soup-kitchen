@@ -10,6 +10,7 @@ function State:__init(core)
   assert(core)
   self.core = core
   self.coordinator = Coordinator:new(core)
+  self.controllables = { self.coordinator }
   self.time = Time:new()
 end
 
