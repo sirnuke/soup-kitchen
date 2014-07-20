@@ -31,7 +31,7 @@ local function version_check()
     Log(tag, 'love runtime is (%i.%i.%i)', major, minor, revision)
   end
   if _VERSION ~= 'Lua 5.1' then
-    Warn(tag, 'unexpected builtin Lua version: %q, expected "Lua 5.1"', _VERSION_)
+    Warn(tag, 'unexpected builtin Lua version: %q, expected "Lua 5.1"', _VERSION)
   end
 end
 
