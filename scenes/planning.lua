@@ -8,7 +8,7 @@ Planning.__name = 'Planning'
 
 function Planning:enter()
   self:addDrawable(Drawable:new(self.core, 'planning/background', Point:new(0, 0)))
-  self.core.state:begin()
+  self.core.state:newDay()
 end
 
 function Planning:mousePressed(point, button)

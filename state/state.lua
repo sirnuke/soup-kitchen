@@ -14,8 +14,10 @@ function State:__init(core)
   self.time = Time:new()
 end
 
-function State:begin()
+function State:newDay()
+  Log(self, "It's a new day!")
   self.coordinator:jump(Quadrant:new(5,5))
+  self.time:newDay()
 end
 
 function State:update(dt)
