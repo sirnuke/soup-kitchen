@@ -11,9 +11,6 @@ function Instructions:enter()
 end
 
 function Instructions:mousePressed(point, button)
-  if button == 'l' then
-    -- TODO: Create new session here
-    self.core:switch('planning')
-  end
+  if button == 'l' then self.core:switch('planning') end
 end
 

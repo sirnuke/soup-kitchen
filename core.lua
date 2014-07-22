@@ -37,9 +37,6 @@ function Core:__init(ignoreUserSettings)
 
   self.scene = self.scenes.mainmenu
   self.scene:enter()
-
-  self.map = Map:new(self)
-  self.state = State:new(self)
 end
 
 function Core:draw()
@@ -61,6 +58,11 @@ function Core:switch(scene)
   Log(self, 'switching to %s!', scene)
   assert(self.scenes[scene])
   self.scenes.next = self.scenes[scene]
+end
+
+function Core:newGame()
+  self.map = Map:new(self)
+  self.state = State:new(self)
 end
 
 function Core:keyPressed(key)

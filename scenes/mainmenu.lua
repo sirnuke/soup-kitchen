@@ -11,6 +11,9 @@ function MainMenu:enter()
 end
 
 function MainMenu:mousePressed(point, button)
-  if button == 'l' then self.core:switch('instructions') end
+  if button == 'l' then
+    self.core:newGame()
+    self.core:switch('instructions')
+  end
 end
 
