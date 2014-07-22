@@ -3,7 +3,7 @@
 --
 -- See LICENSE for licensing information
 
-local cache = {}
+local cache = Cache:new()
 
 Font = Class()
 Font.__name = 'Font'
@@ -12,20 +12,15 @@ Font.__name = 'Font'
 function Font:__init(size, name)
   assert(type(size) == 'number' and size > 0)
   if not name then name = 'regular' end
-  assert(C.fonts.files[name])
-  if not cache[name] then cache[name] = {} end
-  if not cache[name][size] then
-    local font = love.graphics.newFont(C.font.files[name], size)
-    cache[name][size] = ReferenceCounting:new(font)
-  end
-  cache[name][size]:reference()
   self.name = name
   self.size = size
-  self.font = cache[name][size].data
-end
-
-function Font:free()
-  cache[self.name][self.size]:dereference()
-  self.font = nil
+  assert(C.fonts.files[name])
+  if not cache:get(name) then cache:set(name, Cache:new()) end
+  if not cache:get(name):get(size) then
+    self.font = love.graphics.newFont(C.font.files[name], size)
+    cache:get(name):set(size, self.font)
+  else
+    self.font = cache:get(name):get(size)
+  end
 end
 

@@ -3,8 +3,7 @@
 --
 -- See LICENSE for licensing information
 
-local cache = {}
-setmetatable(cache, { __mode = 'k' })
+local cache = Cache:new()
 
 Image = Class()
 Image.__name = 'Image'
@@ -13,11 +12,11 @@ function Image:__init(name)
   assert(type(name) == 'string')
   self.name = name
   self.path = 'images/' .. name .. '.png'
-  if not cache[name] then
+  if not cache:get(name) then
     self.data = love.graphics.newImage(self.path)
-    cache[name] = self.data
+    cache:set(name, self.data)
   else
-    self.data = cache[name]
+    self.data = cache:get(name)
   end
 end
 

@@ -3,22 +3,19 @@
 --
 -- See LICENSE for licensing information
 
-ReferenceCounting = Class()
-ReferenceCounting.__name = "ReferenceCounting"
+Cache = Class()
+Cache.__name = "Cache"
 
-function ReferenceCounting:__init(data)
-  self.data = data
-  self.refences = 0
+function Cache:__init()
+  self.cache = {}
+  setmetatable(self.cache, { __mode = 'v' })
 end
 
-function ReferenceCounting:reference()
-  self.refences = self.refences + 1
+function Cache:get(name)
+  return self.cache[name]
 end
 
-function ReferenceCounting:dereference()
-  self.refences = self.refences - 1
-  if self.refences < 0 then
-    Warn(self, 'references went below 0 on object %s', tostring(self.data))
-  end
+function Cache:set(name, value)
+  self.cache[name] = value
 end
 
