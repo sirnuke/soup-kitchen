@@ -33,13 +33,17 @@ function Scene:clearDrawables()
   end
 end
 
+function Scene:clearProps()
+  self:clearInteractables()
+  self:clearDrawables()
+end
+
 function Scene:enter()
   Error(self, "Scene:enter() isn't overridden!")
 end
 
 function Scene:exit()
-  self:clearInteractables()
-  self:clearDrawables()
+  self:clearProps()
 end
 
 function Scene:draw()
