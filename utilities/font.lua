@@ -14,13 +14,13 @@ function Font:__init(size, name)
   if not name then name = 'regular' end
   self.name = name
   self.size = size
+  local id = name .. "-" .. size
   assert(C.fonts.files[name])
-  if not cache:get(name) then cache:set(name, Cache:new()) end
-  if not cache:get(name):get(size) then
+  if not cache:get(id) then
     self.font = love.graphics.newFont(C.font.files[name], size)
-    cache:get(name):set(size, self.font)
+    cache:get(id):set(id, self.font)
   else
-    self.font = cache:get(name):get(size)
+    self.font = cache:get(id)
   end
 end
 
