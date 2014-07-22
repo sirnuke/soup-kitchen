@@ -4,24 +4,20 @@
 -- See LICENSE for licensing information
 
 local cache = {}
+setmetatable(cache, { __mode = 'k' })
 
 Image = Class()
 Image.__name = 'Image'
 
-function Image:__init(filename)
-  assert(type(filename) == 'string')
-  filename = 'images/' .. filename
-  if not cache[filename] then
-    local image = love.graphics.newImage(filename)
-    cache[filename] = ReferenceCounting:new(image)
+function Image:__init(name)
+  assert(type(name) == 'string')
+  self.name = name
+  self.path = 'images/' .. name .. '.png'
+  if not cache[name] then
+    self.data = love.graphics.newImage(self.path)
+    cache[name] = self.data
+  else
+    self.data = cache[name]
   end
-  cache[filename]:reference()
-  self.filename = filename
-  self.image = cache[filename].data
-end
-
-function Image:free()
-  cache[self.filename]:dereference()
-  self.image = nil
 end
 
