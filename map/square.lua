@@ -6,8 +6,7 @@
 Square = Class()
 Square.__name = 'Square'
 
-function Square:__init(core, type, x, y)
-  self.core = core
+function Square:__init(type, x, y)
   self.quadrant = Quadrant:new(x, y)
   assert(self.quadrant:valid())
   if type == 'X' then
@@ -17,16 +16,6 @@ function Square:__init(core, type, x, y)
   else
     assert(false, string.format("Unknown map square type of '%s' at (%i,%i)", type, x, y))
   end
-  self.tile = Drawable:new(core, string.format("map/%s.png", self.type), self.quadrant:screen())
   self.pawn = nil
-end
-
-function Square:free()
-  self.tile:free()
-  self.tile = nil
-end
-
-function Square:draw()
-  self.tile:draw()
 end
 
