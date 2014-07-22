@@ -10,10 +10,6 @@ function MainMenu:enter()
   self:addDrawable(Drawable:new(self.core, 'mainmenu/background', Point:new(0, 0)))
 end
 
-function MainMenu:exit()
-  self:clearDrawables()
-end
-
 function MainMenu:mousepressed(point, button)
   if button == 'l' then self.core:switch('instructions') end
 end

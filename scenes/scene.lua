@@ -34,11 +34,12 @@ function Scene:clearDrawables()
 end
 
 function Scene:enter()
-  Warn(self, "Scene:enter() isn't overridden!")
+  Error(self, "Scene:enter() isn't overridden!")
 end
 
 function Scene:exit()
-  Warn(self, "Scene:exit() isn't overridden!")
+  self:clearInteractables()
+  self:clearDrawables()
 end
 
 function Scene:draw()
