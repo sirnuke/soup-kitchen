@@ -7,7 +7,7 @@ MainMenu = Scene:extends()
 MainMenu.__name = 'MainMenu'
 
 function MainMenu:enter()
-  self:addDrawable(Drawable:new(self.core, 'mainmenu/background.png', Point:new(0, 0)))
+  self:addDrawable(Drawable:new(self.core, 'mainmenu/background', Point:new(0, 0)))
 end
 
 function MainMenu:exit()
