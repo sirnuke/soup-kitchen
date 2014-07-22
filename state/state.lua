@@ -9,7 +9,7 @@ State.__name = 'State'
 function State:__init(core)
   assert(core)
   self.core = core
-  self.coordinator = Coordinator:new(core)
+  self.coordinator = Coordinator:new(core.map)
   self.controllables = { self.coordinator }
   self.time = Time:new()
 end
