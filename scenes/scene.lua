@@ -34,23 +34,23 @@ function Scene:update(dt)
   end
 end
 
-function Scene:mousepressed(point, button)
+function Scene:mousePressed(point, button)
   for i,interactable in pairs(self.interactables) do
-    interactable:mousepressed(point, button)
+    interactable:mousePressed(point, button)
   end
 end
 
-function Scene:mousereleased(point, button)
+function Scene:mouseReleased(point, button)
   for i,interactable in pairs(self.interactables) do
-    interactable:mousereleased(point, button)
+    interactable:mouseReleased(point, button)
   end
 end
 
 -- Key presses are ignored by default, as most scenes do not (and will
 -- not) need them.  Additionally, few, if any, interactables will responds
 -- to them
-function Scene:keypressed(key) end
-function Scene:keyreleased(key) end
+function Scene:keyPressed(key) end
+function Scene:keyReleased(key) end
 
 -- Scene helper functions, in all likely hood none of these will need
 -- to be overridden

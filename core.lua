@@ -63,19 +63,19 @@ function Core:switch(scene)
   self.scenes.next = self.scenes[scene]
 end
 
-function Core:keypressed(key)
-  self.scene:keypressed(key)
+function Core:keyPressed(key)
+  self.scene:keyPressed(key)
 end
 
-function Core:keyreleased(key)
-  self.scene:keyreleased(key)
+function Core:keyReleased(key)
+  self.scene:keyReleased(key)
 end
 
-function Core:mousepressed(x, y, button)
-  self.scene:mousepressed(self.screen:translate(x, y), button)
+function Core:mousePressed(x, y, button)
+  self.scene:mousePressed(self.screen:translate(x, y), button)
 end
 
-function Core:mousereleased(x, y, button)
-  self.scene:mousereleased(self.screen:translate(x, y), button)
+function Core:mouseReleased(x, y, button)
+  self.scene:mouseReleased(self.screen:translate(x, y), button)
 end
 

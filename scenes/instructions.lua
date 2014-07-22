@@ -10,7 +10,10 @@ function Instructions:enter()
   self:addDrawable(Drawable:new(self.core, 'instructions/background', Point:new(0, 0)))
 end
 
-function Instructions:mousepressed(point, button)
-  if button == 'l' then self.core:switch('planning') end
+function Instructions:mousePressed(point, button)
+  if button == 'l' then
+    -- TODO: Create new session here
+    self.core:switch('planning')
+  end
 end
 

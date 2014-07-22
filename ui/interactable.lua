@@ -36,11 +36,11 @@ function Interactable:compareMouse(x, y)
   end
 end
 
-function Interactable:mousepressed(point, button)
+function Interactable:mousePressed(point, button)
   self.pressed = self.hover
 end
 
-function Interactable:mousereleased(point, button)
+function Interactable:mouseReleased(point, button)
   self.pressed = false
 end
 

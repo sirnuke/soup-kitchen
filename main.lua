@@ -53,19 +53,19 @@ function love.keypressed(key)
   if key == "q" then
     love.event.quit()
   else
-    core:keypressed(key)
+    core:keyPressed(key)
   end
 end
 
 function love.keyreleased(key)
-  core:keyreleased(key)
+  core:keyReleased(key)
 end
 
 function love.mousepressed(x, y, button)
-  core:mousepressed(x, y, button)
+  core:mousePressed(x, y, button)
 end
 
 function love.mousereleased(x, y, button)
-  core:mousereleased(x, y, button)
+  core:mouseReleased(x, y, button)
 end
 

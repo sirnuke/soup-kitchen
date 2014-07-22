@@ -11,7 +11,7 @@ function Planning:enter()
   self.core.state:begin()
 end
 
-function Planning:mousepressed(point, button)
+function Planning:mousePressed(point, button)
   if button == 'l' then
     self.core:switch('mapview')
   end
