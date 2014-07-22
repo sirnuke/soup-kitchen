@@ -30,16 +30,33 @@ function Scene:exit()
 end
 
 function Scene:draw()
-  Warn(self, "Scene:draw() isn't overridden!")
+  for i,drawable in self.drawables do
+    drawable:draw()
+  end
 end
 
 function Scene:update(dt)
-  Warn(self, "Scene:draw(%i) isn't overridden!", dt)
+  local mouse = self.core.screen:translate(love.mouse.getPosition())
+  for i,interactable in self.interactables do
+    interactable:update(mouse, dt)
+  end
 end
 
--- Scenes only need to override input that they need
+function Scene:mousepressed(point, button)
+  for i,interactable in pairs(self.interactables) do
+    interactable:mousepressed(point, button)
+  end
+end
+
+function Scene:mousereleased(point, button)
+  for i,interactable in pairs(self.interactables) do
+    interactable:mousereleased(point, button)
+  end
+end
+
+-- Key presses are ignored by default, as most scenes do not (and will
+-- not) need them.  Additionally, few, if any, interactables will responds
+-- to them
 function Scene:keypressed(key) end
 function Scene:keyreleased(key) end
-function Scene:mousepressed(point, button) end
-function Scene:mousereleased(point, button) end
 
