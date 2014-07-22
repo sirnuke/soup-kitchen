@@ -8,6 +8,7 @@ Class = require 'utilities/30log'
 
 require 'core'
 
+require 'utilities/cache'
 require 'utilities/configuration'
 require 'utilities/coordinate'
 require 'utilities/font'
@@ -15,7 +16,6 @@ require 'utilities/image'
 require 'utilities/logging'
 require 'utilities/point'
 require 'utilities/quadrant'
-require 'utilities/referencecounting'
 require 'utilities/screen'
 
 require 'ui/drawable'
