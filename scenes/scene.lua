@@ -13,31 +13,6 @@ function Scene:__init(core)
   self.drawables = {}
 end
 
-function Scene:addInteractable(interactable)
-  table.insert(self.interactables, interactable)
-end
-
-function Scene:addDrawable(drawable)
-  table.insert(self.drawables, drawable)
-end
-
-function Scene:clearInteractables()
-  for i,interactables in pairs(self.interactables) do
-    self.interactables[i] = nil
-  end
-end
-
-function Scene:clearDrawables()
-  for i,drawable in pairs(self.drawables) do
-    self.drawables[i] = nil
-  end
-end
-
-function Scene:clearProps()
-  self:clearInteractables()
-  self:clearDrawables()
-end
-
 function Scene:enter()
   Error(self, "Scene:enter() isn't overridden!")
 end
@@ -76,4 +51,32 @@ end
 -- to them
 function Scene:keypressed(key) end
 function Scene:keyreleased(key) end
+
+-- Scene helper functions, in all likely hood none of these will need
+-- to be overridden
+
+function Scene:addInteractable(interactable)
+  table.insert(self.interactables, interactable)
+end
+
+function Scene:addDrawable(drawable)
+  table.insert(self.drawables, drawable)
+end
+
+function Scene:clearInteractables()
+  for i,interactables in pairs(self.interactables) do
+    self.interactables[i] = nil
+  end
+end
+
+function Scene:clearDrawables()
+  for i,drawable in pairs(self.drawables) do
+    self.drawables[i] = nil
+  end
+end
+
+function Scene:clearProps()
+  self:clearInteractables()
+  self:clearDrawables()
+end
 
