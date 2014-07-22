@@ -15,8 +15,8 @@ function Interactable:__init(point, width, height)
   self.hover = false
 end
 
-function Interactable:update()
-  self.hover = self:compare_mouse(love.mouse.getPosition())
+function Interactable:update(point, dt)
+  self.hover = self:compare_mouse(point)
 end
 
 function Interactable:setPoint(point)
@@ -36,11 +36,11 @@ function Interactable:compareMouse(x, y)
   end
 end
 
-function Interactable:mousepressed()
+function Interactable:mousepressed(point, button)
   self.pressed = self.hover
 end
 
-function Interactable:mousereleased()
+function Interactable:mousereleased(point, button)
   self.pressed = false
 end
 
