@@ -13,12 +13,25 @@ function Scene:__init(core)
   self.drawables = {}
 end
 
-function Scene:add_interactable(interactable)
+function Scene:addInteractable(interactable)
   table.insert(self.interactables, interactable)
 end
 
-function Scene:add_drawable(drawable)
+function Scene:addDrawable(drawable)
   table.insert(self.drawables, drawable)
+end
+
+function Scene:clearInteractables()
+  for i,interactables in pairs(self.interactables) do
+    self.interactables[i] = nil
+  end
+end
+
+function Scene:clearDrawables()
+  for i,drawable in pairs(self.drawables) do
+    drawable:free()
+    self.drawables[i] = nil
+  end
 end
 
 function Scene:enter()
@@ -30,14 +43,14 @@ function Scene:exit()
 end
 
 function Scene:draw()
-  for i,drawable in self.drawables do
+  for i,drawable in pairs(self.drawables) do
     drawable:draw()
   end
 end
 
 function Scene:update(dt)
   local mouse = self.core.screen:translate(love.mouse.getPosition())
-  for i,interactable in self.interactables do
+  for i,interactable in pairs(self.interactables) do
     interactable:update(mouse, dt)
   end
 end
