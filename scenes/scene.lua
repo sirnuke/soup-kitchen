@@ -9,6 +9,16 @@ Scene.__name = "Scene"
 function Scene:__init(core)
   assert(core)
   self.core = core
+  self.interactables = {}
+  self.drawables = {}
+end
+
+function Scene:add_interactable(interactable)
+  table.insert(self.interactables, interactable)
+end
+
+function Scene:add_drawable(drawable)
+  table.insert(self.drawables, drawable)
 end
 
 function Scene:enter()
