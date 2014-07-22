@@ -29,7 +29,6 @@ end
 
 function Scene:clearDrawables()
   for i,drawable in pairs(self.drawables) do
-    drawable:free()
     self.drawables[i] = nil
   end
 end
