@@ -30,3 +30,7 @@ function Point.__eq(a, b)
   end
 end
 
+function Point.__tostring(point)
+  return string.format("(P:%i,%i)", point.x, point.y)
+end
+
