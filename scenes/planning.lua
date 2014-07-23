@@ -13,7 +13,7 @@ end
 
 function Planning:mousePressed(point, button)
   if button == 'l' then
-    self.core:switch('mapview')
+    self.core:switch('ingame')
   end
 end
 

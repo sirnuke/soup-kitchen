@@ -4,9 +4,9 @@
 -- See LICENSE for licensing information
 
 require 'scenes/scene'
-require 'scenes/instructions'
 require 'scenes/mainmenu'
-require 'scenes/mapview'
+require 'scenes/ingame'
+require 'scenes/instructions'
 require 'scenes/planning'
 
 require 'map/map'
@@ -20,6 +20,8 @@ require 'pawns/coordinator'
 require 'state/state'
 require 'state/time'
 
+require 'views/ingame/mapview'
+
 Core = Class {
   scenes = { next = nil },
   scene = nil,
@@ -32,7 +34,7 @@ function Core:__init(ignoreUserSettings)
 
   self.scenes.mainmenu = MainMenu:new(self)
   self.scenes.instructions = Instructions:new(self)
-  self.scenes.mapview = MapView:new(self)
+  self.scenes.ingame = InGame:new(self)
   self.scenes.planning = Planning:new(self)
 
   self.scene = self.scenes.mainmenu

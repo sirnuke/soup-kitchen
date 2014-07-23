@@ -3,12 +3,12 @@
 --
 -- See LICENSE for licensing information
 
-MapProp = Class()
-MapProp.__name = 'MapProp'
+MapView = Class()
+MapView.__name = 'MapView'
 
-function MapProp:__init()
+function MapView:__init()
 end
 
-function MapProp:draw()
+function MapView:draw()
 end
 
