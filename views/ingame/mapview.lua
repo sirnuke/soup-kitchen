@@ -12,6 +12,7 @@ function MapView:__init(core)
   self.size = C.layout.ingame.mapview.size
   self.background = Drawable:new(core, 'ingame/map', self.point)
   self.squares = {}
+  self.pawns = {}
 
   local quadrant = Quadrant:new()
   for y,row in pairs(core.map.data) do
@@ -22,12 +23,17 @@ function MapView:__init(core)
         quadrant:screen()))
     end
   end
+  for k,pawn in pairs(self.core.state.pawns) do
+  end
 end
 
 function MapView:draw()
   self.background:draw()
   for k,square in pairs(self.squares) do
     square:draw()
+  end
+  for k,pawn in pairs(self.pawns) do
+    pawn:draw()
   end
 end
 
