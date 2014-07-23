@@ -11,6 +11,7 @@ function State:__init(core)
   self.core = core
   self.coordinator = Coordinator:new(core.map)
   self.controllables = { self.coordinator }
+  self.pawns = { self.coordinator }
   self.time = Time:new()
 end
 
