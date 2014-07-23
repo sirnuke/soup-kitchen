@@ -21,7 +21,8 @@ function Coordinate:quadrant()
 end
 
 function Coordinate:screen()
-  return Point:new(self.x + C.layout.mapview.map.x, self.y + C.layout.mapview.map.y)
+  return Point:new(self.x + C.layout.ingame.mapview.point.x,
+    self.y + C.layout.ingame.mapview.point.y)
 end
 
 function Coordinate.__eq(a, b)
