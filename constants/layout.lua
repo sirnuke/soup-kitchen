@@ -4,18 +4,36 @@
 -- See LICENSE for licensing information
 
 return {
-  mapview = {
-    game_sidebar = {
-      x = 0,
-      y = 0,
+  ingame = {
+    gamesidebar = {
+      point = {
+        x = 0,
+        y = 0,
+      },
+      size = {
+        w = 256,
+        h = 768,
+      }
     },
-    map = {
-      x = 256,
-      y = -25,
+    mapview = {
+      point = {
+        x = 256,
+        y = -25,
+      },
+      size = {
+        w = 768,
+        h = 768,
+      },
     },
-    player_sidebar = {
-      x = 1024,
-      y = 0,
-    },
+    playersidebar = {
+      point = {
+        x = 1024,
+        y = 0,
+      },
+      size = {
+        w = 256,
+        h = 768,
+      },
+    }
   },
 }
