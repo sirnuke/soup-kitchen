@@ -6,8 +6,9 @@
 Pawn = Class()
 Pawn.__name = 'Pawn'
 
-function Pawn:__init(map, controllable)
-  assert(map and type(controllable) == 'boolean')
+function Pawn:__init(map, id, controllable)
+  assert(id and map and type(controllable) == 'boolean')
+  self.id = id
   self.map = map
   self.quadrant = nil
   self.coordinate = nil

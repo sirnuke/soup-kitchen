@@ -6,7 +6,7 @@
 PlayerControlled = Pawn:extends()
 PlayerControlled.__name = 'PlayerControlled'
 
-function PlayerControlled:__init(map)
-  PlayerControlled.super.__init(self, map, true)
+function PlayerControlled:__init(map, id)
+  PlayerControlled.super.__init(self, map, id, true)
 end
 

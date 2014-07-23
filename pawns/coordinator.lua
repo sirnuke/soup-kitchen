@@ -7,6 +7,6 @@ Coordinator = PlayerControlled:extends()
 Coordinator.__name = 'Coordinator'
 
 function Coordinator:__init(map)
-  Coordinator.super.__init(self, map)
+  Coordinator.super.__init(self, map, 'coordinator')
 end
 
