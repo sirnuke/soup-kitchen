@@ -12,7 +12,8 @@ function MapView:__init(core)
   self.size = C.layout.ingame.mapview.size
   self.background = Drawable:new(core, 'ingame/map', self.point)
   self.squares = {}
-  self.pawns = {}
+  self.controllables = {}
+  self.ais = {}
 
   local quadrant = Quadrant:new()
   for y,row in pairs(core.map.data) do
@@ -23,17 +24,18 @@ function MapView:__init(core)
         quadrant:screen()))
     end
   end
-  for k,pawn in pairs(self.core.state.pawns) do
+  for k,pawn in pairs(self.core.state.controllables) do
+    table.insert(self.controllables, ControllablePawnView:new(self.core, pawn))
+  end
+  for k,pawn in pairs(self.core.state.ais) do
+    table.insert(self.ais, PawnView:new(self.core, pawn))
   end
 end
 
 function MapView:draw()
   self.background:draw()
-  for k,square in pairs(self.squares) do
-    square:draw()
-  end
-  for k,pawn in pairs(self.pawns) do
-    pawn:draw()
-  end
+  for k,square in pairs(self.squares) do square:draw() end
+  for k,pawn in pairs(self.ais) do pawn:draw() end
+  for k,pawn in pairs(self.controllables) do pawn:draw() end
 end
 
