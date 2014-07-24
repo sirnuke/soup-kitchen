@@ -20,6 +20,8 @@ require 'pawns/coordinator'
 require 'state/state'
 require 'state/time'
 
+require 'views/ingame/pawnview'
+require 'views/ingame/controllablepawnview'
 require 'views/ingame/mapview'
 require 'views/ingame/playersidebar'
 
