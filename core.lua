@@ -21,6 +21,7 @@ require 'state/state'
 require 'state/time'
 
 require 'views/ingame/mapview'
+require 'views/ingame/playersidebar'
 
 Core = Class {
   scenes = { next = nil },

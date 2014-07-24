@@ -8,11 +8,12 @@ InGame.__name = 'InGame'
 
 function InGame:enter()
   local mapView = MapView:new(self.core)
-  self:addDrawable(Drawable:new(self.core, 'ingame/player-sidebar',
-    Point:new(C.layout.ingame.playersidebar.point)))
+  local playerSidebar = PlayerSidebar:new(self.core)
   self:addDrawable(Drawable:new(self.core, 'ingame/game-sidebar',
     Point:new(C.layout.ingame.gamesidebar.point)))
+  self:addDrawable(playerSidebar)
   self:addDrawable(mapView)
-  --self.addInteractable(mapProp)
+  --self.addInteractable(mapView)
+  --self:addInteractable(playerSidebar)
 end
 
