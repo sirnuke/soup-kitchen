@@ -10,8 +10,10 @@ function PawnView:__init(core, pawn)
   assert(core and pawn)
   self.core = core
   self.pawn = pawn
+  self.image = Image:new(string.format("pawns/%s", pawn.id))
 end
 
 function PawnView:draw()
+  self.core.screen:draw(self.image.data, self.pawn.coordinate:screen())
 end
 
