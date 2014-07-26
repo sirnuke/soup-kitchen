@@ -39,10 +39,21 @@ function MapView:draw()
   for k,pawn in pairs(self.controllables) do pawn:draw() end
 end
 
+function MapView:inBounds(point)
+  if point.x < self.point.x or point.y < self.point.y or point.x > self.point.x + self.size.w or point.y > self.point.y + self.size.h then
+    return false
+  else
+    return true
+  end
+end
+
 function MapView:update(mouse, dt)
 end
 
 function MapView:mousePressed(point, button)
+  if self:inBounds(point) then
+    Log(self, "Inbounds!: %s", point)
+  end
 end
 
 function MapView:mouseReleased(point, button)
