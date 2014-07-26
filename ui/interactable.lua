@@ -15,8 +15,8 @@ function Interactable:__init(point, width, height)
   self.hover = false
 end
 
-function Interactable:update(point, dt)
-  self.hover = self:compare_mouse(point)
+function Interactable:update(mouse, dt)
+  self.hover = self:compare_mouse(mouse)
 end
 
 function Interactable:setPoint(point)
