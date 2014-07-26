@@ -15,10 +15,23 @@ function Interactable:__init(point, width, height)
   self.hover = false
 end
 
+-- These three functions are the effective 'interface' of interactables.
+-- Other implementations (views) should not be expected to necessarily
+-- contain other functions
+
 function Interactable:update(mouse, dt)
   self.hover = self:compare_mouse(mouse)
 end
 
+function Interactable:mousePressed(point, button)
+  self.pressed = self.hover
+end
+
+function Interactable:mouseReleased(point, button)
+  self.pressed = false
+end
+
+-- Functions specific to the generic interactable implementation 
 function Interactable:setPoint(point)
   if point then
     self.point = point:duplicate()
@@ -34,14 +47,6 @@ function Interactable:compareMouse(x, y)
   else
     return false
   end
-end
-
-function Interactable:mousePressed(point, button)
-  self.pressed = self.hover
-end
-
-function Interactable:mouseReleased(point, button)
-  self.pressed = false
 end
 
 function Interactable:triggered()
