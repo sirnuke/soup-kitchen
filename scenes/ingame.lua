@@ -13,7 +13,7 @@ function InGame:enter()
     Point:new(C.layout.ingame.gamesidebar.point)))
   self:addDrawable(playerSidebar)
   self:addDrawable(mapView)
-  --self.addInteractable(mapView)
   --self:addInteractable(playerSidebar)
+  self:addInteractable(mapView)
 end
 

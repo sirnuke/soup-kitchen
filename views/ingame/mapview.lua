@@ -39,3 +39,12 @@ function MapView:draw()
   for k,pawn in pairs(self.controllables) do pawn:draw() end
 end
 
+function MapView:update(mouse, dt)
+end
+
+function MapView:mousePressed(point, button)
+end
+
+function MapView:mouseReleased(point, button)
+end
+
