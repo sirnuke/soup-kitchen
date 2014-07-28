@@ -40,7 +40,8 @@ function MapView:draw()
 end
 
 function MapView:inBounds(point)
-  if point.x < self.point.x or point.y < self.point.y or point.x > self.point.x + self.size.w or point.y > self.point.y + self.size.h then
+  if point.x < self.point.x or point.y < self.point.y or point.x > self.point.x + self.size.w 
+    or point.y > self.point.y + self.size.h then
     return false
   else
     return true
@@ -52,7 +53,12 @@ end
 
 function MapView:mousePressed(point, button)
   if self:inBounds(point) then
-    Log(self, "Inbounds!: %s", point)
+    if button == 'r' then
+      for k,pawn in pairs(self.controllables) do pawn:mouseSelectedPressed(point) end
+    elseif button == 'r' then
+      --local quadrant = point:quadrant()
+      --for k,pawn in pairs(self.controllables) do pawn:mouseMovementPressed(quadrant) end
+    end
   end
 end
 
