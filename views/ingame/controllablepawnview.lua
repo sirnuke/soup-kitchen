@@ -10,6 +10,15 @@ function ControllablePawnView:__init(core, pawn)
   assert(core, pawn)
   ControllablePawnView.super.__init(self, core, pawn)
   self.selected = false
+  self.overlay = Image:new("mapview/selected")
+end
+
+function ControllablePawnView:draw()
+  local screen = self.pawn.coordinate:screen()
+  self.core.screen:draw(self.image.data, screen)
+  if self.selected then
+    self.core.screen:draw(self.overlay.data, screen)
+  end
 end
 
 function ControllablePawnView:mouseSelectedPressed(point)
