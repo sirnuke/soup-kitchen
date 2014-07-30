@@ -35,7 +35,8 @@ end
 
 function ControllablePawnView:mouseMovementPressed(quadrant)
   if self.selected then
-    -- TODO: Attempt to send pawn to this quadrand
+    Log(self, "Attempting to move to %s", quadrant)
+    -- TODO: Attempt to move pawn
   end
 end
 
