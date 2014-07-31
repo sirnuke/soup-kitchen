@@ -22,6 +22,15 @@ function Point:duplicate()
   return Point:new(self.x, self.y)
 end
 
+function Point:coordinate()
+  return Coordinate:new(self.x - C.layout.ingame.mapview.point.x,
+    self.y - C.layout.ingame.mapview.point.y)
+end
+
+function Point:quadrant()
+  return self:coordinate():quadrant()
+end
+
 function Point.__eq(a, b)
   if a.x == b.x and a.y == b.y then
     return true
