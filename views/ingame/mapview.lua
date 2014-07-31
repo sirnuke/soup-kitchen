@@ -55,9 +55,10 @@ function MapView:mousePressed(point, button)
   if self:inBounds(point) then
     if button == 'r' then
       for k,pawn in pairs(self.controllables) do pawn:mouseSelectedPressed(point) end
-    elseif button == 'r' then
-      --local quadrant = point:quadrant()
-      --for k,pawn in pairs(self.controllables) do pawn:mouseMovementPressed(quadrant) end
+    elseif button == 'l' then
+      local quadrant = point:quadrant()
+      Log(self, "quadrant is %s", quadrant)
+      for k,pawn in pairs(self.controllables) do pawn:mouseMovementPressed(quadrant) end
     end
   end
 end
