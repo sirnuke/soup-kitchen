@@ -14,6 +14,7 @@ function MapView:__init(core)
   self.squares = {}
   self.controllables = {}
   self.ais = {}
+  self.selected = nil
 
   local quadrant = Quadrant:new()
   for y,row in pairs(core.map.data) do
@@ -58,7 +59,9 @@ function MapView:mousePressed(point, button)
     elseif button == 'l' then
       local quadrant = point:quadrant()
       Log(self, "quadrant is %s", quadrant)
-      for k,pawn in pairs(self.controllables) do pawn:mouseMovementPressed(quadrant) end
+      if self.selected then
+        self.selected:mouseMovementPressed(quadrant)
+      end
     end
   end
 end
