@@ -21,16 +21,22 @@ function ControllablePawnView:draw()
   end
 end
 
-function ControllablePawnView:mouseSelectedPressed(point)
+function ControllablePawnView:mouseInBounds(point)
   local screen = self.pawn.coordinate:screen()
   if point.x >= screen.x and point.x < screen.x + C.map.pawn.width
     and point.y >= screen.y and point.y < screen.y + C.map.pawn.height then
-    if not self.selected then Log(self, "Selected!") end
-    self.selected = true
+    return true
   else
-    if self.selected then Log(self, "Unselected!") end
-    self.selected = false
+    return false
   end
+end
+
+function ControllablePawnView:select()
+  self.selected = true
+end
+
+function ControllablePawnView:deselect()
+  self.selected = false
 end
 
 function ControllablePawnView:mouseMovementPressed(quadrant)
