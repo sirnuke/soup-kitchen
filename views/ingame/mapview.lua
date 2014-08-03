@@ -50,6 +50,8 @@ function MapView:inBounds(point)
 end
 
 function MapView:update(mouse, dt)
+  for k,pawn in pairs(self.ais) do pawn:update(dt) end
+  for k,pawn in pairs(self.controllables) do pawn:update(dt) end
 end
 
 function MapView:mousePressed(point, button)

@@ -17,3 +17,6 @@ function PawnView:draw()
   self.core.screen:draw(self.image.data, self.pawn.coordinate:screen())
 end
 
+function PawnView:update(dt)
+end
+
