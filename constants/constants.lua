@@ -36,6 +36,7 @@ local constants = {
 
   layout = require 'constants/layout',
   map = require 'constants/map',
+  controls = require 'constants/controls',
 }
 
 local debug = constants.debug
