@@ -19,3 +19,11 @@ function Square:__init(type, x, y)
   self.pawn = nil
 end
 
+function Square:occupied()
+  return self.pawn ~= nil
+end
+
+function Square:blocked()
+  return self.type == 'blocked'
+end
+
