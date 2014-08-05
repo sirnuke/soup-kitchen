@@ -18,16 +18,31 @@ function Map:__init()
   self.pawns = {}
 end
 
+function Map:get(quadrant)
+  return self.data[quadrant.y][quadrant.x]
+end
+
+function Map:empty(quadrant)
+  return not (self:occupied(quadrant) or self:blocked(quadrant))
+end
+
 function Map:occupied(quadrant)
-  return self.data[quadrant.y][quadrant.x].pawn ~= nil
+  return self:get(quadrant):occupied()
+end
+
+function Map:blocked(quadrant)
+  return self:get(quadrant):blocked()
 end
 
 function Map:jump(pawn, quadrant)
   Log(self, 'Jumping %s to %s', pawn, quadrant)
   assert(pawn and quadrant)
-  assert(not self:occupied(quadrant),
-    string.format("Cannot jump to %s: it's occupied!", quadrant))
-  self.pawns[pawn] = pawn
-  self.data[quadrant.y][quadrant.x].pawn = pawn
+  assert(self:empty(quadrant),
+    string.format("Cannot jump to %s: it's occupied or blocked!", quadrant))
+  if self.pawns[pawn] then
+    self:get(self.pawns[pawn]).pawn = nil
+  end
+  self.pawns[pawn] = quadrant
+  self:get(quadrant).pawn = pawn
 end
 
