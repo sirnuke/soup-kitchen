@@ -39,10 +39,9 @@ function ControllablePawnView:deselect()
   self.selected = false
 end
 
-function ControllablePawnView:mouseMovementPressed(quadrant)
-  if self.selected then
-    Log(self, "Attempting to move to %s", quadrant)
-    -- TODO: Attempt to move pawn
-  end
+function ControllablePawnView:moveTo(quadrant)
+  assert(self.selected)
+  Log(self, "Attempting to move to %s", quadrant)
+  self.pawn:jump(quadrant)
 end
 

@@ -67,8 +67,8 @@ function MapView:mousePressed(point, button)
       end
     elseif button == C.controls.ingame.move then
       local quadrant = point:quadrant()
-      if self.selected then
-        self.selected:mouseMovementPressed(quadrant)
+      if self.selected and self.core.map:empty(quadrant) then
+        self.selected:moveTo(quadrant)
       end
     end
   end
