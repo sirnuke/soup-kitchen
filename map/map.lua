@@ -34,15 +34,30 @@ function Map:blocked(quadrant)
   return self:get(quadrant):blocked()
 end
 
-function Map:jump(pawn, quadrant)
-  Log(self, 'Jumping %s to %s', pawn, quadrant)
+function Map:move(pawn, quadrant)
+  Log(self, 'Moving %s to %s', pawn, quadrant)
   assert(pawn and quadrant)
   assert(self:empty(quadrant),
-    string.format("Cannot jump to %s: it's occupied or blocked!", quadrant))
+    string.format("Cannot move to %s: it's occupied or blocked!", quadrant))
   if self.pawns[pawn] then
     self:get(self.pawns[pawn]).pawn = nil
   end
   self.pawns[pawn] = quadrant
   self:get(quadrant).pawn = pawn
+end
+
+function Map:neighbors(quadrant)
+  local quad = Quadrant:new()
+  local neighbors = { }
+  for y in -1,1 do for x in -1,1 do
+    if x ~= 0 and y ~= 0 then
+      quad.x, quad.y = quadrant.x + x, quadrant.y + y
+      if quad:valid() and not self:blocked(quad) then
+        table.insert(neighbors, quad:duplicate())
+      end
+    end
+  end end
+  -- TODO: Consider a random sort here
+  return neighbors
 end
 
