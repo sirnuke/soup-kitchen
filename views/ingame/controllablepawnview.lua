@@ -42,6 +42,6 @@ end
 function ControllablePawnView:moveTo(quadrant)
   assert(self.selected)
   Log(self, "Attempting to move to %s", quadrant)
-  self.pawn:jump(quadrant)
+  self.pawn:move(quadrant)
 end
 
