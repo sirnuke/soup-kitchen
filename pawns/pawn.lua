@@ -32,5 +32,27 @@ function Pawn:move(quadrant)
   self.destination = quadrant
   self.map:move(self, quadrant)
   local start = self.coordinate:quadrant()
+  self:pathfind(quadrant)
+end
+
+function Pawn:pathfind(quadrant)
+  local map = {}
+  local queue = {self.quadrant:duplicate()}
+  local head = nil
+  local neighbors = nil
+  while #queue > 0 do
+    head = queue[1]
+    if head == quadrant then break end
+    table.remove(queue, 1)
+    neighbors = self.map:neighbors(head)
+    for i,neighbor in pairs(neighbors) do
+      if not map[neighbor.y] then map[neighbor.y] = { } end
+      if not map[neighbor.y][neighbor.x] then
+        map[neighbor.y][neighbor.x] = head:duplicate()
+        table.insert(queue, neighbor)
+      end
+    end
+  end
+  Log(self, "located %s @ %s from %s", quadrant, head, self.quadrant)
 end
 
