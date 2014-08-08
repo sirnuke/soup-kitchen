@@ -47,9 +47,10 @@ function Map:move(pawn, quadrant)
 end
 
 function Map:neighbors(quadrant)
+  assert(quadrant)
   local quad = Quadrant:new()
   local neighbors = { }
-  for y in -1,1 do for x in -1,1 do
+  for y = -1,1 do for x = -1,1 do
     if x ~= 0 and y ~= 0 then
       quad.x, quad.y = quadrant.x + x, quadrant.y + y
       if quad:valid() and not self:blocked(quad) then
