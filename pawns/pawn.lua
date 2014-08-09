@@ -35,6 +35,10 @@ function Pawn:move(quadrant)
   self:pathfind(quadrant)
 end
 
+function Pawn:initialQuadrants()
+  -- TODO: Return self.coordinate:quadrant() + up to three quadrants that can be shortcutt'd to
+end
+
 function Pawn:pathfind(quadrant)
   local map = {}
   local queue = {self.quadrant:duplicate()}
